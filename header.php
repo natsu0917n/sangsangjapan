@@ -37,7 +37,12 @@
         <<?php echo $tag_name; ?> class="l-header__logo">
           <a class="l-header__logo-wrap" href="<?php echo home_url('/'); ?>" translate="no">SANGSANG JAPAN</a>
         </<?php echo $tag_name; ?>>
-        <nav class="l-header__navigation">
+        <button class="l-header__hamburger" id="js-hamburger" aria-label="メニュー" aria-expanded="false">
+          <span class="l-header__hamburger-line"></span>
+          <span class="l-header__hamburger-line"></span>
+          <span class="l-header__hamburger-line"></span>
+        </button>
+        <nav class="l-header__navigation" id="js-navigation">
           <a
             class="l-header__navigation-item"
             href="<?php echo home_url('/'); ?>#company"

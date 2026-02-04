@@ -146,6 +146,38 @@ if (window.matchMedia('(max-width: 767px)').matches) {
   Global Header
 ---------------------------------------------------*/
 /**
+ * ハンバーガーメニュー
+ */
+(() => {
+  const hamburger = document.getElementById('js-hamburger');
+  const navigation = document.getElementById('js-navigation');
+
+  if (hamburger && navigation) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = html.classList.toggle('-navigation-open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+
+      // メニューが開いた時にスクロールを無効化
+      if (isOpen) {
+        body.style.overflow = 'hidden';
+      } else {
+        body.style.overflow = '';
+      }
+    });
+
+    // ナビゲーションリンクをクリックしたらメニューを閉じる
+    const navLinks = navigation.querySelectorAll('a');
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        html.classList.remove('-navigation-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      });
+    });
+  }
+})();
+
+/**
  * スクロール方向に応じてスタイルを付与
  */
 (() => {
