@@ -32,7 +32,7 @@
   <body <?php body_class(); ?> data-page-state="loading">
     <div class="p-transition-mask"></div>
     <header class="l-header" id="js-global-header" data-transition>
-      <div class="l-header__inner" data-scroll-hide>
+      <div class="l-header__inner">
         <?php $tag_name = is_front_page() ? 'h1' : 'div'; ?>
         <<?php echo $tag_name; ?> class="l-header__logo">
           <a class="l-header__logo-wrap" href="<?php echo home_url('/'); ?>" translate="no">SANGSANG JAPAN</a>
