@@ -1,9 +1,10 @@
 .p-contact {
-  @include content-width;
   border-top: 2px solid var(--color-gray-50);
   padding: {
     top: 80px;
+    right: 10vw;
     bottom: 150px;
+    left: 10vw;
   }
 }
 
