@@ -133,8 +133,18 @@
     right: 3vw;
     left: 3vw;
 
+    &__inner {
+      align-items: center;
+    }
+
     &__hamburger {
       display: flex;
+      margin-left: auto;
+      order: 2;
+    }
+
+    &__logo {
+      order: 1;
     }
 
     &__navigation {

@@ -76,7 +76,7 @@
         </a>
       <?php endwhile; endif; ?>
     </div>
-    <?php do_shortcode('[pagination]') ?>
+    <?php echo do_shortcode('[pagination]'); ?>
   </div>
 </div>
 
