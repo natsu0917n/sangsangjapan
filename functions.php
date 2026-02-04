@@ -513,3 +513,19 @@ function sangsang_customize_register($wp_customize) {
   ));
 }
 add_action('customize_register', 'sangsang_customize_register');
+
+/**
+ * コンタクトフォームのSP表示調整
+ */
+function sangsang_fix_contact_form_mobile_width() {
+  if (is_page('contact')) {
+    echo '<style>
+      @media (max-width: 767px) {
+        .p-contact-form {
+          width: 90% !important;
+        }
+      }
+    </style>';
+  }
+}
+add_action('wp_head', 'sangsang_fix_contact_form_mobile_width');
