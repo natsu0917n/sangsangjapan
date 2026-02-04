@@ -125,6 +125,41 @@
       }
     }
   }
+
+  &__sns {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  &__sns-link {
+    clip-path: inset(0 0 100% 0);
+    translate: 0 100%;
+    transition: clip-path 1s $cubic #{$transition-delay}s, translate 1s $cubic #{$transition-delay}s, opacity 0.3s $cubic;
+
+    [data-page-state='entered'] &,
+    [data-page-state='leave'] & {
+      clip-path: inset(0 0 0 0);
+      translate: 0 0;
+    }
+
+    svg {
+      fill: var(--color-black);
+      transition: fill 0.3s $cubic;
+      width: 24px;
+      height: 24px;
+    }
+
+    .-on & svg {
+      fill: var(--color-white);
+    }
+
+    @include hover {
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
 }
 
 @include mq(md) {
