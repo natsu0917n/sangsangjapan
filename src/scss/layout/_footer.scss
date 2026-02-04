@@ -77,11 +77,12 @@
       align-items: flex-start;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+      grid-template-rows: auto auto auto;
       gap: 0px 0px;
       grid-template-areas:
         'Logo Navigation'
-        'Copyright Navigation';
+        'Copyright Navigation'
+        'SNS SNS';
     }
 
     &__logo {
@@ -110,6 +111,28 @@
       color: var(--color-gray-300);
       grid-area: Copyright;
       padding-top: 10px;
+    }
+
+    &__sns {
+      display: flex;
+      gap: 20px;
+      grid-area: SNS;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    &__sns-link {
+      color: var(--color-white);
+      transition: opacity 0.3s $cubic;
+
+      &:hover {
+        opacity: 0.6;
+      }
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 }
