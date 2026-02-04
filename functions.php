@@ -397,3 +397,59 @@ function show_recaptcha() {
   wp_deregister_script('google-recaptcha');
 };
 add_action('wp_enqueue_scripts', 'show_recaptcha', 100);
+
+/**
+ * SNSリンク設定をカスタマイザーに追加
+ */
+function sangsang_customize_register($wp_customize) {
+  // SNSセクションを追加
+  $wp_customize->add_section('sangsang_sns_section', array(
+    'title' => 'SNSリンク設定',
+    'priority' => 30,
+  ));
+
+  // Instagram URL
+  $wp_customize->add_setting('sangsang_instagram_url', array(
+    'default' => '',
+    'sanitize_callback' => 'esc_url_raw',
+  ));
+  $wp_customize->add_control('sangsang_instagram_url', array(
+    'label' => 'Instagram URL',
+    'section' => 'sangsang_sns_section',
+    'type' => 'url',
+  ));
+
+  // Facebook URL
+  $wp_customize->add_setting('sangsang_facebook_url', array(
+    'default' => '',
+    'sanitize_callback' => 'esc_url_raw',
+  ));
+  $wp_customize->add_control('sangsang_facebook_url', array(
+    'label' => 'Facebook URL',
+    'section' => 'sangsang_sns_section',
+    'type' => 'url',
+  ));
+
+  // Twitter (X) URL
+  $wp_customize->add_setting('sangsang_twitter_url', array(
+    'default' => '',
+    'sanitize_callback' => 'esc_url_raw',
+  ));
+  $wp_customize->add_control('sangsang_twitter_url', array(
+    'label' => 'X (Twitter) URL',
+    'section' => 'sangsang_sns_section',
+    'type' => 'url',
+  ));
+
+  // LINE URL
+  $wp_customize->add_setting('sangsang_line_url', array(
+    'default' => '',
+    'sanitize_callback' => 'esc_url_raw',
+  ));
+  $wp_customize->add_control('sangsang_line_url', array(
+    'label' => 'LINE URL',
+    'section' => 'sangsang_sns_section',
+    'type' => 'url',
+  ));
+}
+add_action('customize_register', 'sangsang_customize_register');

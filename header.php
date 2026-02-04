@@ -51,13 +51,13 @@
             <?php if (is_front_page()) echo 'data-anchor'; ?>
           >
             <span class="l-header__navigation-item-text" data-text="事業紹介">事業紹介</span>
-          </a>        
+          </a>
           <a class="l-header__navigation-item" href="<?php echo home_url(); ?>/news/">
             <span class="l-header__navigation-item-text" data-text="お知らせ">お知らせ</span>
-          </a>        
+          </a>
           <a class="l-header__navigation-item" href="<?php echo home_url(); ?>/contact/">
             <span class="l-header__navigation-item-text" data-text="お問い合わせ">お問い合わせ</span>
-          </a>        
+          </a>
         </nav>
       </div>
     </header>
