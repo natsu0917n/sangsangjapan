@@ -74,26 +74,23 @@
     }
 
     &__inner {
-      align-items: flex-start;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto auto;
-      gap: 0px 0px;
-      grid-template-areas:
-        'Logo Navigation'
-        'Copyright Navigation'
-        'SNS SNS';
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
     }
 
     &__logo {
-      grid-area: Logo;
+      font-size: $font-size-300;
+      order: 1;
     }
 
     &__navigation {
       display: grid;
-      gap: 22px 15px;
-      grid-area: Navigation;
+      gap: 15px 30px;
       grid-template-columns: repeat(2, 1fr);
+      order: 2;
+      text-align: center;
     }
 
     &__navigation-item {
@@ -107,18 +104,11 @@
       }
     }
 
-    &__copyright {
-      color: var(--color-gray-300);
-      grid-area: Copyright;
-      padding-top: 10px;
-    }
-
     &__sns {
       display: flex;
       gap: 20px;
-      grid-area: SNS;
       justify-content: center;
-      margin-top: 30px;
+      order: 3;
     }
 
     &__sns-link {
@@ -133,6 +123,12 @@
         width: 24px;
         height: 24px;
       }
+    }
+
+    &__copyright {
+      color: var(--color-gray-300);
+      font-size: $font-size-50;
+      order: 4;
     }
   }
 }
