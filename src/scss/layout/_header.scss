@@ -184,7 +184,8 @@
 
     &__navigation {
       background: var(--color-white);
-      display: none;
+      color: var(--color-black) !important;
+      display: flex;
       flex-direction: column;
       gap: 20px;
       height: 100vh;
@@ -195,19 +196,30 @@
       top: 0;
       width: 100%;
       z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
 
       .-navigation-open & {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
       }
     }
 
     &__navigation-item {
+      clip-path: inset(0 0 0 0) !important;
+      color: var(--color-black) !important;
       font-size: $font-size-100;
       height: auto;
+      opacity: 1 !important;
       text-align: center;
+      translate: 0 0 !important;
+      visibility: visible !important;
     }
 
     &__navigation-item-text {
+      color: var(--color-black) !important;
+
       &::after {
         display: none;
       }
@@ -221,7 +233,13 @@
     }
 
     &__sns-link {
+      clip-path: inset(0 0 0 0) !important;
+      opacity: 1 !important;
+      translate: 0 0 !important;
+      visibility: visible !important;
+
       svg {
+        fill: var(--color-black) !important;
         width: 32px;
         height: 32px;
       }

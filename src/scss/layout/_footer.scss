@@ -64,6 +64,28 @@
     color: var(--color-white);
     font-size: $font-size-50;
   }
+
+  &__sns {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  &__sns-link {
+    transition: opacity 0.3s $cubic;
+
+    @include hover {
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    svg {
+      fill: var(--color-white);
+      width: 24px;
+      height: 24px;
+    }
+  }
 }
 
 @include mq(md) {

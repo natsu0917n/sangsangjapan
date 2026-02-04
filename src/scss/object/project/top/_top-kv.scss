@@ -236,15 +236,16 @@
         clip-path: inset(100% 0 0 0);
       }
 
-      &.-left img {
+      img {
         object-fit: contain;
         object-position: top;
+      }
+
+      &.-left img {
         translate: -20px 0;
       }
 
       &.-right img {
-        object-fit: contain;
-        object-position: top;
         translate: 0 20px;
       }
     }
