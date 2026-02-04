@@ -451,5 +451,16 @@ function sangsang_customize_register($wp_customize) {
     'section' => 'sangsang_sns_section',
     'type' => 'url',
   ));
+
+  // TikTok URL
+  $wp_customize->add_setting('sangsang_tiktok_url', array(
+    'default' => '',
+    'sanitize_callback' => 'esc_url_raw',
+  ));
+  $wp_customize->add_control('sangsang_tiktok_url', array(
+    'label' => 'TikTok URL',
+    'section' => 'sangsang_sns_section',
+    'type' => 'url',
+  ));
 }
 add_action('customize_register', 'sangsang_customize_register');
