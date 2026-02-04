@@ -161,6 +161,8 @@
       transition: translate 0.75s $cubic #{$transition-delay}s;
       height: 100%;
       width: 100%;
+      object-fit: cover;
+      object-position: top;
     }
 
     &.-left img {
