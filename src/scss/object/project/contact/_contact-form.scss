@@ -238,6 +238,7 @@
 
 @include mq(md) {
   .p-contact-form {
+    margin: 0;
     width: 100%;
 
     &__group {
