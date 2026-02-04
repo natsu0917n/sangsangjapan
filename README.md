@@ -1,1 +1,1 @@
-# 株式会社sangsangjapa
+# 株式会社sangsangjapan
