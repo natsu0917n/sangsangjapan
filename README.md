@@ -1,1 +1,1 @@
-# 株式会社PANIRETO コーポレートサイト
+# 株式会社sangsangjapa
