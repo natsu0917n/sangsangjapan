@@ -247,18 +247,55 @@
       }
 
       & + & {
-        padding-top: 20px;
+        padding-top: 15px;
       }
+    }
+
+    &__label {
+      font-size: $font-size-50;
+      padding-bottom: 5px;
+
+      &.-required::after {
+        font-size: 10px;
+        height: 18px;
+        width: 38px;
+      }
+    }
+
+    &__textfield {
+      font-size: $font-size-50;
+      padding: 12px 15px;
     }
 
     &__radio,
     &__checkbox {
+      $icon-size-mobile: 20px;
+      $item-padding-mobile: 15px;
       grid-template-columns: 1fr;
+
+      .wpcf7-list-item-label {
+        font-size: $font-size-50;
+        grid-template-columns: $icon-size-mobile 1fr;
+        padding: 0 $item-padding-mobile;
+        height: 50px;
+      }
+
+      .wpcf7-list-item-label::before {
+        height: $icon-size-mobile;
+        width: $icon-size-mobile;
+      }
+
+      .wpcf7-list-item-label::after {
+        $check-size-mobile: 12px;
+        left: $item-padding-mobile + (($icon-size-mobile - $check-size-mobile) / 2);
+        height: $check-size-mobile;
+        width: $check-size-mobile;
+      }
     }
 
     &__submit-button {
       font-size: $font-size-100;
-      padding: 25px 0;
+      padding: 20px 0;
     }
   }
 }
