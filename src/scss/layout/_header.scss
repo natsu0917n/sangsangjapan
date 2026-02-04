@@ -1,0 +1,116 @@
+.l-header {
+  $transition-delay: 0.3;
+  position: fixed;
+  top: 60px;
+  right: 60px;
+  left: 60px;
+  z-index: map-get($z-index, header);
+
+  &__inner {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    transition: opacity 0.3s $cubic, translate 0.3s $cubic;
+  }
+
+  &__logo {
+    @include font-forma-djr($weight: $font-weight-medium);
+    color: var(--color-black);
+    clip-path: inset(0 0 100% 0);
+    font-size: $font-size-300;
+    letter-spacing: 0.05em;
+    translate: 0 100%;
+    transition: color 0.3s $cubic, clip-path 1s $cubic #{$transition-delay}s, opacity 0.3s $cubic,
+      translate 1s $cubic #{$transition-delay}s;
+
+    @include hover {
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    .-on & {
+      color: var(--color-white);
+    }
+
+    [data-page-state='entered'] &,
+    [data-page-state='leave'] & {
+      clip-path: inset(0 0 0 0);
+      translate: 0 0;
+    }
+  }
+
+  &__navigation {
+    color: var(--color-black);
+    display: flex;
+    gap: 40px;
+    transition: color 0.3s $cubic;
+
+    .-on & {
+      color: var(--color-white);
+    }
+  }
+
+  &__navigation-item {
+    clip-path: inset(0 0 100% 0);
+    overflow-y: hidden;
+    translate: 0 $font-size-100 * 1.3;
+    transition: clip-path 1s $cubic #{$transition-delay}s, translate 1s $cubic #{$transition-delay}s;
+    height: $font-size-100 * 1.3; // 1.3em
+
+    [data-page-state='entered'] &,
+    [data-page-state='leave'] & {
+      clip-path: inset(0 0 0 0);
+      translate: 0 0;
+    }
+  }
+
+  &__navigation-item-text {
+    display: block;
+    transition: transform 0s $cubic;
+
+    &::after {
+      content: attr(data-text);
+      display: block;
+      opacity: 0;
+      transition: opacity 0.5s $cubic 0.075s;
+    }
+
+    @include hover {
+      &:hover {
+        transform: translateY(0 - ($font-size-100 * 1.3)); // 1.3em + Offset
+        transition: transform 0.5s $cubic;
+      }
+
+      &:hover::after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@include mq(md) {
+  .l-header {
+    top: 3vw;
+    right: 3vw;
+    left: 3vw;
+
+    &__navigation {
+      display: grid;
+      gap: 15px;
+      grid-template-columns: repeat(2, 1fr);
+      height: max-content;
+    }
+
+    &__navigation-item {
+      font-size: $font-size-50;
+      height: auto;
+    }
+
+    &__navigation-item-text {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

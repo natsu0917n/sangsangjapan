@@ -1,0 +1,17 @@
+.p-contact {
+  @include content-width;
+  border-top: 2px solid var(--color-gray-50);
+  padding: {
+    top: 80px;
+    bottom: 150px;
+  }
+}
+
+@include mq(md) {
+  .p-contact {
+    padding: {
+      top: 40px;
+      bottom: 60px;
+    }
+  }
+}

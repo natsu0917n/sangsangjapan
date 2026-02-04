@@ -1,0 +1,122 @@
+.c-under-kv {
+  $parent: &;
+  $transition-delay: 0.3;
+  @include content-width;
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  padding: {
+    top: 30vh;
+    bottom: 100px;
+  }
+
+  &__title-small {
+    align-items: center;
+    clip-path: inset(0 0 100% 0);
+    display: flex;
+    font-size: $font-size-200;
+    gap: 10px;
+    translate: 0 100%;
+    transition: translate 1s $cubic #{$transition-delay}s, clip-path 1s $cubic #{$transition-delay}s;
+
+    &::before {
+      content: '(';
+    }
+
+    &::after {
+      content: ')';
+    }
+
+    [data-page-state='entered'] &,
+    [data-page-state='leave'] & {
+      clip-path: inset(0 0 0 0);
+      translate: 0 0;
+    }
+  }
+
+  &__title-large {
+    @include font-forma-djr;
+    clip-path: inset(0 0 100% 0);
+    display: block;
+    font-size: 64px;
+    padding-top: 35px;
+    translate: 0 100%;
+    transition: translate 1s $cubic 0.1s, clip-path 1s $cubic 0.1s;
+
+    [data-page-state='entered'] &,
+    [data-page-state='leave'] & {
+      clip-path: inset(0 0 0 0);
+      translate: 0 0;
+    }
+  }
+
+  &__bread {
+    align-items: center;
+    display: flex;
+    gap: 15px;
+  }
+
+  &__bread-item {
+    @include font-forma-djr;
+    align-items: center;
+    display: flex;
+    font-size: $font-size-200;
+    gap: 15px;
+
+    &:not(.-current) {
+      color: var(--color-gray-500);
+      transition: color 0.3s $cubic;
+    }
+
+    & + &::before {
+      content: '';
+      background: var(--color-gray-200);
+      height: 1px;
+      width: 100px;
+    }
+
+    @include hover {
+      &:not(.-current):hover {
+        color: var(--color-black);
+      }
+    }
+  }
+
+  &__bread-item-text {
+    clip-path: inset(0 0 100% 0);
+    text-decoration: none;
+    translate: 0 100%;
+    transition: translate 1s $cubic #{$transition-delay}s, clip-path 1s $cubic #{$transition-delay}s;
+
+    [data-page-state='entered'] &,
+    [data-page-state='leave'] & {
+      clip-path: inset(0 0 0 0);
+      translate: 0 0;
+    }
+
+    #{$parent}__bread-item:not(.-current):hover & {
+      opacity: 1;
+    }
+  }
+}
+
+@include mq(md) {
+  .c-under-kv {
+    display: block;
+    padding-top: 40vh;
+    padding-bottom: 40px;
+
+    &__title-small {
+      font-size: $font-size-100;
+    }
+
+    &__title-large {
+      font-size: 56px;
+      padding-top: 10px;
+    }
+
+    &__bread {
+      padding-top: 30px;
+    }
+  }
+}

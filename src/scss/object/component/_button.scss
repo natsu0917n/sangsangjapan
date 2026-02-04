@@ -1,0 +1,78 @@
+.c-button {
+  $circle-size: 40px;
+  $padding-x: 5px;
+  align-items: center;
+  background: var(--color-black);
+  border: 1px solid transparent;
+  border-radius: 100px;
+  color: var(--color-white);
+  display: grid;
+  grid-template-columns: 1fr $circle-size;
+  padding: {
+    top: $padding-x;
+    right: 5px;
+    bottom: $padding-x;
+    left: 20px;
+  }
+  position: relative;
+  transition: background 0.5s $cubic, border 0.5s $cubic, color 0.5s $cubic;
+  width: max-content;
+  min-width: 180px;
+
+  &::before {
+    background: url('#{$image}icon_button_arrow.svg') no-repeat center center / 20px 20px;
+    content: '';
+    mix-blend-mode: difference;
+    position: absolute;
+    right: $padding-x;
+    height: $circle-size;
+    width: $circle-size;
+    z-index: 1;
+  }
+
+  &::after {
+    background: var(--color-white);
+    border-radius: 100%;
+    content: '';
+    transition: background 0.5s $cubic, scale 0.5s $cubic;
+    transform-origin: center;
+    height: $circle-size;
+    width: $circle-size;
+  }
+
+  @include hover {
+    &:hover {
+      background: transparent;
+      border: 1px solid var(--color-black);
+      color: var(--color-black);
+    }
+
+    &:hover::before {
+      animation: button_arrow_right 0.5s $cubic both;
+    }
+
+    &:hover::after {
+      background: var(--color-black);
+      scale: 0.8;
+    }
+  }
+}
+
+@include mq(md) {
+  .c-button {
+    $circle-size: 30px;
+    font-size: $font-size-50;
+    grid-template-columns: 1fr $circle-size;
+    min-width: 150px;
+
+    &::before {
+      height: $circle-size;
+      width: $circle-size;
+    }
+
+    &::after {
+      height: $circle-size;
+      width: $circle-size;
+    }
+  }
+}

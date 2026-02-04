@@ -1,0 +1,17 @@
+src/
+node_modules/
+.git/
+.gitignore
+docker-compose.yml
+package.json
+package-lock.json
+webpack.config.js
+postcss.config.js
+convertImage.mjs
+setup.sh
+*.md
+.prettierrc
+.prettierignore
+DOCKER_INSTALL_GUIDE.md
+README_SETUP.md
+DEPLOY_GUIDE.md

@@ -1,0 +1,44 @@
+.c-pagination {
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+  padding-top: 60px;
+
+  &:empty {
+    display: none;
+  }
+
+  &__link {
+    & > a {
+      border-radius: 10px;
+      display: block;
+      padding: 12px 60px;
+      text-decoration: none;
+      transition: scale 0.5s $cubic;
+    }
+
+    &.-prev > a {
+      border: 1px solid var(--color-gray-200);
+    }
+
+    &.-next > a {
+      background: var(--color-black);
+      border: 1px solid var(--color-black);
+      color: var(--color-white);
+    }
+
+    @include hover {
+      & > a:hover {
+        opacity: 1;
+        scale: 0.95;
+      }
+    }
+  }
+}
+
+@include mq(md) {
+  .c-pagination {
+    gap: 3vw;
+    padding-top: 30px;
+  }
+}

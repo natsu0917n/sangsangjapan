@@ -1,0 +1,138 @@
+/**
+ * Foudation / Base
+ */
+
+*:not(img)::selection {
+  background: #95ff00;
+  color: var(--color-black);
+}
+
+img::selection {
+  background: rgba(#000, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
+  // scroll-padding-top: $header-height;
+  -webkit-text-size-adjust: 100%; // iOS Safariで意図せず文字が拡大されて表示されるのを回避
+}
+
+body {
+  @include font-koz-goth;
+  background: var(--color-base);
+  color: var(--color-black);
+  font-style: normal;
+  font-size: $font-size-100;
+  font-feature-settings: 'palt';
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.025em;
+  overscroll-behavior-y: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+[data-transition] {
+  position: relative;
+  top: 0;
+  transition: top 1s cubic-bezier(0.2, 1, 0.2, 1) 0.2s;
+  will-change: top;
+
+  [data-page-state='loading'] & {
+    top: 12.5vh !important;
+  }
+
+  [data-page-state='leave'] & {
+    top: -20vh !important;
+    transition: top 0.75s cubic-bezier(0.8, 0, 0.175, 1) 0s;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  word-break: break-all;
+}
+
+picture {
+  display: block;
+}
+
+img {
+  display: flex;
+  object-fit: cover;
+  height: auto;
+  width: 100%;
+}
+
+svg {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+p {
+  line-height: 2;
+  text-align: justify;
+}
+
+a {
+  color: inherit;
+}
+
+a:not([class]) {
+  transition: opacity 0.5s $cubic;
+  text-decoration: underline;
+}
+
+@include hover {
+  a:not([class]):hover {
+    opacity: 0.5;
+  }
+}
+
+strong {
+  color: var(--color-main);
+  font-weight: 500;
+}
+
+button {
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+}
+
+td {
+  text-align: justify;
+}
+
+input,
+textarea {
+  @include font-koz-goth;
+  border-radius: 0;
+  font-style: normal;
+  font-size: $font-size-100;
+  font-feature-settings: 'palt';
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.05em;
+
+  &::placeholder {
+    color: var(--color-gray-200);
+  }
+}
+
+select {
+  background: none;
+  color: inherit;
+}

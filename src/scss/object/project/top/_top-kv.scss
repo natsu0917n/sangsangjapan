@@ -1,0 +1,247 @@
+.p-top-kv {
+  $parent: &;
+  $transition-delay: 0.3;
+  aspect-ratio: 1366 / 768;
+  position: relative;
+  width: 100vw;
+
+  &::after {
+    background: rgba(#000, 0.35);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__catch {
+    color: var(--color-white);
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    z-index: 1;
+  }
+
+  &__catch-small {
+    clip-path: inset(0 0 100% 0);
+    display: block;
+    font-size: $font-size-300;
+    translate: 0 100%;
+    transition: translate 1s $cubic #{$transition-delay}s, clip-path 1s $cubic #{$transition-delay}s;
+
+    [data-page-state='entered'] &,
+    [data-page-state='leave'] & {
+      clip-path: inset(0 0 0 0);
+      translate: 0 0;
+    }
+  }
+
+  &__catch-large {
+    @include font-forma-djr;
+    font-size: 90px;
+    padding-top: 25px;
+  }
+
+  &__catch-large-line {
+    clip-path: inset(0 0 100% 0);
+    display: block;
+    line-height: 1;
+    translate: 0 100%;
+    transition: translate 1s $cubic #{$transition-delay}s, clip-path 1s $cubic #{$transition-delay}s;
+
+    [data-page-state='entered'] &,
+    [data-page-state='leave'] & {
+      clip-path: inset(0 0 0 0);
+      translate: 0 0;
+    }
+  }
+
+  &__scroll-down {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    right: 60px;
+    bottom: 60px;
+    height: 160px;
+    width: 160px;
+    z-index: 1;
+
+    &::after {
+      $size: 30px;
+      background: url('#{$image}icon_top_kv_scroll_down_arrow.svg') no-repeat center center / contain;
+      content: '';
+      opacity: 0;
+      position: absolute;
+      translate: 0 -20px;
+      transition: opacity 0.5s $cubic #{0.15 + $transition-delay}s, translate 0.5s $cubic #{0.15 + $transition-delay}s;
+      height: $size;
+      width: $size;
+    }
+
+    [data-page-state='entered'] &::after,
+    [data-page-state='leave'] &::after {
+      opacity: 1;
+      translate: 0 0;
+    }
+
+    @include hover {
+      &:hover::after {
+        animation: button_arrow_down 0.5s $cubic both;
+      }
+    }
+  }
+
+  &__scroll-down-circle {
+    display: grid;
+    opacity: 0;
+    place-items: center;
+    position: absolute;
+    rotate: -540deg;
+    transform-origin: center;
+    transition: rotate 1.2s $cubic #{$transition-delay}s, scale 0.5s $cubic, opacity 0.75s $cubic #{$transition-delay}s;
+    height: 100%;
+    width: 100%;
+
+    &::after {
+      $size: 160px;
+      animation: rotate_circle 15s linear infinite;
+      background: url('#{$image}img_top_kv_scroll_down_circle.svg') no-repeat center center / contain;
+      content: '';
+      position: absolute;
+      height: $size;
+      width: $size;
+      will-change: rotate;
+    }
+
+    [data-page-state='entered'] &,
+    [data-page-state='leave'] & {
+      opacity: 1;
+      rotate: 0deg;
+    }
+
+    @include hover {
+      #{$parent}__scroll-down:hover & {
+        scale: 0.9;
+      }
+    }
+  }
+
+  &__background {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__background-image {
+    transition: clip-path 0.75s $cubic #{$transition-delay}s;
+
+    &.-left {
+      clip-path: inset(0 0 100% 0);
+    }
+
+    &.-right {
+      clip-path: inset(0 100% 0 0);
+    }
+
+    [data-page-state='entered'] &.-left,
+    [data-page-state='leave'] &.-left,
+    [data-page-state='entered'] &.-right,
+    [data-page-state='leave'] &.-right {
+      clip-path: inset(0 0 0 0);
+    }
+
+    .simpleParallax {
+      height: 100%;
+    }
+
+    img {
+      transition: translate 0.75s $cubic #{$transition-delay}s;
+      height: 100%;
+      width: 100%;
+    }
+
+    &.-left img {
+      translate: 0 -20px;
+    }
+
+    &.-right img {
+      translate: -20px 0;
+    }
+
+    [data-page-state='entered'] &.-left img,
+    [data-page-state='leave'] &.-left img,
+    [data-page-state='entered'] &.-right img,
+    [data-page-state='leave'] &.-right img {
+      translate: 0;
+    }
+  }
+}
+
+@include mq(md) {
+  .p-top-kv {
+    aspect-ratio: unset;
+
+    &__catch {
+      inset: 0 3vw;
+      margin: auto;
+      text-align: center;
+      height: max-content;
+    }
+
+    &__catch-large {
+      font-size: 48px;
+      padding-top: 15px;
+    }
+
+    &__scroll-down {
+      margin: 0 auto;
+      right: 0;
+      bottom: 6vw;
+      left: 0;
+      height: 120px;
+      width: 120px;
+
+      &::after {
+        $size: 30px;
+        height: $size;
+        width: $size;
+      }
+    }
+
+    &__scroll-down-circle {
+      &::after {
+        $size: 120px;
+        height: $size;
+        width: $size;
+      }
+    }
+
+    &__background {
+      grid-template-columns: 1fr;
+    }
+
+    &__background-image {
+      aspect-ratio: 1 / 0.75;
+
+      &.-left {
+        clip-path: inset(0 100% 0 0);
+      }
+
+      &.-right {
+        clip-path: inset(100% 0 0 0);
+      }
+
+      &.-left img {
+        object-position: 0 20%;
+        translate: -20px 0;
+      }
+
+      &.-right img {
+        translate: 0 20px;
+      }
+    }
+  }
+}

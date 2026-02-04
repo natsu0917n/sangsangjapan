@@ -1,0 +1,19 @@
+.p-transition-mask {
+  background: var(--color-gray-50);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: map-get($z-index, transition-mask);
+
+  [data-page-state='entered'] & {
+    transform: translateY(calc(-100% - 5px)) translateZ(10px);
+    transform-origin: center top;
+    transition: transform 1s cubic-bezier(0.2, 1, 0.2, 1) 0.2s;
+  }
+
+  [data-page-state='leave'] & {
+    animation: transition_mask 0.75s cubic-bezier(0.8, 0, 0.175, 1) 0s 1 normal both;
+  }
+}

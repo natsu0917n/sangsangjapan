@@ -1,0 +1,127 @@
+.c-article {
+  $parent: &;
+  background: var(--color-white);
+  border: 1px solid transparent;
+  border-radius: 20px;
+  box-shadow: 15px 15px 30px rgba(#000, 0.1);
+  transition: border 0.5s $cubic, box-shadow 0.5s $cubic;
+
+  @include hover {
+    &:hover {
+      border: 1px solid #f3f3f3;
+      box-shadow: 0 0 0 transparent;
+    }
+  }
+
+  &__thumbnail {
+    padding: 10px 10px 0;
+  }
+
+  &__thumbnail-inner {
+    aspect-ratio: 1 / 0.75;
+    border-radius: 15px;
+    overflow: hidden;
+
+    img {
+      transform-origin: center;
+      transition: scale 1s $cubic;
+    }
+
+    @include hover {
+      #{$parent}:hover & img {
+        scale: 1.1;
+      }
+    }
+  }
+
+  &__contents {
+    padding: 20px 20px 25px;
+  }
+
+  &__info {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+  }
+
+  &__date {
+    color: var(--color-gray-500);
+  }
+
+  &__category {
+    align-items: center;
+    background: var(--color-gray-50);
+    border-radius: 100px;
+    display: flex;
+    padding: 5px 20px;
+  }
+
+  &__category-item {
+    color: var(--color-gray-800);
+    font-size: $font-size-50;
+    line-height: 1;
+    white-space: pre;
+
+    & + &::before {
+      color: var(--color-gray-500);
+      content: '/';
+      margin: 0 0.5em;
+    }
+  }
+
+  &__title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 1.7;
+    overflow: hidden;
+    padding-top: 10px;
+  }
+}
+
+@include mq(md) {
+  .c-article {
+    border-radius: 15px;
+
+    &__thumbnail {
+      padding: 5px 5px 0;
+    }
+
+    &__thumbnail-inner {
+      border-radius: 10px;
+
+      .-safari & {
+        position: relative;
+        z-index: 1;
+      }
+
+      .simpleParallax {
+        height: 100%;
+      }
+    }
+
+    &__contents {
+      padding: 15px 15px 20px;
+    }
+
+    &__info {
+      gap: 5px;
+    }
+
+    &__date {
+      font-size: $font-size-50;
+    }
+
+    &__category {
+      padding: 5px 10px;
+    }
+
+    &__category-item {
+      font-size: 10px;
+
+      & + & {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<div class="p-contact-form">
+  <div class="p-contact-form__group">
+    <div class="p-contact-form__item">
+      <label class="p-contact-form__label" for="company">会社名</label>
+      [text company id:company class:p-contact-form__textfield placeholder "例）株式会社PANIRETO"]
+    </div>
+  </div>
+  <div class="p-contact-form__group -col2">
+    <div class="p-contact-form__item">
+      <label class="p-contact-form__label -required" for="your-name">お名前</label>
+      [text* your-name id:your-name class:p-contact-form__textfield placeholder "例） 山田 太郎"]
+    </div>
+    <div class="p-contact-form__item">
+      <label class="p-contact-form__label -required" for="your-name-kana">フリガナ</label>
+      [text* your-name-kana id:your-name-kana class:p-contact-form__textfield placeholder "例）ヤマダ タロウ"]
+    </div>
+  </div>
+  <div class="p-contact-form__group -col2">
+    <div class="p-contact-form__item">
+      <label class="p-contact-form__label -required" for="tel">電話番号</label>
+      [tel* tel id:tel class:p-contact-form__textfield placeholder "例）090-1234-5678"]
+    </div>
+    <div class="p-contact-form__item">
+      <label class="p-contact-form__label -required" for="mail">メールアドレス</label>
+      [email* mail id:mail class:p-contact-form__textfield placeholder "例）example@mail.com"]
+    </div>
+  </div>
+  <div class="p-contact-form__group">
+    <div class="p-contact-form__item">
+      <label class="p-contact-form__label -required" for="message">お問い合わせ本文</label>
+      [textarea* message id:message class:p-contact-form__textfield placeholder "こちらに本文をご入力ください"]
+    </div>
+  </div>
+  <div class="p-contact-form__submit">
+    <div class="p-contact-form__submit-button">
+      内容を送信する
+      [submit]
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+/**
+ * Foudation / Font
+ */
+
+/**
+ * Size
+ */
+$font-size-50: 12px;
+$font-size-100: 14px;
+$font-size-200: 16px;
+$font-size-300: 18px;
+$font-size-400: 21px;
+$font-size-500: 24px;
+$font-size-600: 28px;
+$font-size-700: 32px;
+$font-size-800: 36px;
+$font-size-900: 42px;
+$font-size-1000: 48px;
+
+/**
+ * Weight
+ */
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+/**
+ * Family
+ */
+@mixin font-koz-goth($weight: $font-weight-medium) {
+  font-family: 'kozuka-gothic-pr6n', sans-serif;
+  font-weight: $weight;
+  font-style: normal;
+}
+
+@mixin font-forma-djr($weight: $font-weight-regular) {
+  font-family: 'forma-djr-text', sans-serif;
+  font-weight: $weight;
+  font-style: normal;
+  letter-spacing: 0em;
+}

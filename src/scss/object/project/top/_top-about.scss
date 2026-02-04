@@ -1,0 +1,63 @@
+.p-top-about {
+  @include content-width;
+  padding: {
+    top: 100px;
+    bottom: 120px;
+  }
+
+  &__heading {
+    @include top-heading-small;
+  }
+
+  &__main {
+    display: grid;
+    gap: 100px;
+    grid-template-columns: auto 1fr;
+    padding-top: 40px;
+  }
+
+  &__lead-large {
+    @include font-forma-djr;
+    font-size: 64px;
+    line-height: 1.2;
+  }
+
+  &__lead-small {
+    display: block;
+    font-size: $font-size-400;
+    line-height: 1.7;
+    padding-top: 7px;
+  }
+
+  &__contents {
+    font-size: $font-size-200;
+    line-height: 2.5;
+  }
+}
+
+@include mq(md) {
+  .p-top-about {
+    padding: {
+      top: 60px;
+      bottom: 40px;
+    }
+
+    &__main {
+      gap: 30px;
+      grid-template-columns: 1fr;
+      padding-top: 20px;
+    }
+
+    &__lead-large {
+      font-size: $font-size-900;
+    }
+
+    &__lead-small {
+      font-size: $font-size-200;
+    }
+
+    &__contents {
+      color: var(--color-gray-800);
+    }
+  }
+}
