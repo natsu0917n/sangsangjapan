@@ -11,7 +11,7 @@
   <div class="p-top-kv__background">
     <div class="p-top-kv__background-image -left">
       <img
-        src="<?php echo get_template_directory_uri(); ?>/dist/images/webp/bg_top_kv_03.webp"
+        src="<?php echo get_template_directory_uri(); ?>/dist/images/bg_top_kv_left.png"
         height="683"
         width="768"
         loading="eager"
@@ -20,7 +20,7 @@
     </div>
     <div class="p-top-kv__background-image -right">
       <img
-        src="<?php echo get_template_directory_uri(); ?>/dist/images/webp/bg_top_kv_04.webp"
+        src="<?php echo get_template_directory_uri(); ?>/dist/images/bg_top_kv_right.png"
         height="683"
         width="768"
         loading="eager"
