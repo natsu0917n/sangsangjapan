@@ -226,7 +226,7 @@
     }
 
     &__background-image {
-      aspect-ratio: 1 / 0.75;
+      aspect-ratio: unset;
 
       &.-left {
         clip-path: inset(0 100% 0 0);
@@ -237,11 +237,14 @@
       }
 
       &.-left img {
-        object-position: 0 20%;
+        object-fit: contain;
+        object-position: top;
         translate: -20px 0;
       }
 
       &.-right img {
+        object-fit: contain;
+        object-position: top;
         translate: 0 20px;
       }
     }
