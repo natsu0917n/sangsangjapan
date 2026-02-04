@@ -1,4 +1,7 @@
 <?php
+/**
+ * Template Name: Contact
+ */
   $page = get_page(get_the_ID());
   $search = array('-', '_');
   $replace = array(' ', ' ');
